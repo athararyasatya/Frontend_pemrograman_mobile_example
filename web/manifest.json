@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "frontend_pemob",
     "short_name": "frontend_pemob",
+=======
+    "name": "frontend_project",
+    "short_name": "frontend_project",
+>>>>>>> 84243e0 (order detail)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # frontend_pemob
+=======
+# frontend_project
+>>>>>>> 84243e0 (order detail)
 
 A new Flutter project.
 

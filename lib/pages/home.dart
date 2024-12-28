@@ -256,6 +256,7 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(width: 8),

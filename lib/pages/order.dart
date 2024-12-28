@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+import '../routes/route.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});
@@ -351,91 +353,142 @@ class _OrderPageState extends State<OrderPage> {
           ),
         ),
       ),
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/images/logo_login.png',
-          height: 40,
-        ),
-        actions: [
-          Padding(
-            padding:
-                const EdgeInsets.only(right: 20.0), // Spasi dari tepi kanan
+      body: Stack(
+        children: [
+          // Bagian utama halaman dengan ScrollView
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height *
+                      0.1), // Jarak dari atas
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 10.0),
+                child: Column(
+                  children: [
+                    buildTextField(
+                        labelText: "Order Number",
+                        controller: _orderController),
+                    const SizedBox(height: 20),
+                    buildTextField(
+                        labelText: "Employee", controller: _employeeController),
+                    const SizedBox(height: 20),
+                    buildTextField(
+                        labelText: "Branch Company",
+                        controller: _branchController),
+                    const SizedBox(height: 20),
+                    buildTextField(
+                        labelText: "Client Company",
+                        controller: _clientController),
+                    const SizedBox(height: 20),
+                    buildTextField(
+                        labelText: "Discount", controller: _discountController),
+                    const SizedBox(height: 20),
+                    buildTextField(
+                        labelText: "Status", controller: _statusController),
+                    const SizedBox(height: 190),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 20.0, right: 10.0, left: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceBetween, // Pemisah otomatis
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Get.offAllNamed(Routes.home);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      12.0), // Atur radius di sini
+                                ),
+                              ),
+                              child: Text(
+                                "BACK",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: _showDetailOrder,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      12.0), // Atur radius di sini
+                                ),
+                              ),
+                              child: Text(
+                                "SUBMIT",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // Logo di kiri atas
+          Positioned(
+            top: 20,
+            left: 20,
+            child: GestureDetector(
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Logo perusahaan'),
+                  ),
+                );
+              },
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.12,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/logo_login.png'),
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          // Ikon person di kanan atas
+          Positioned(
+            top: 20,
+            right: 20,
             child: GestureDetector(
               onTap: () {
                 _scaffoldKey.currentState!.openEndDrawer(); // Buka sidebar
               },
               child: CircleAvatar(
-                radius: screenWidth * 0.06, // Responsif
+                radius: MediaQuery.of(context).size.width * 0.06,
                 backgroundColor: Colors.teal,
                 child: Icon(
                   Icons.person,
                   color: Colors.white,
-                  size: screenWidth * 0.05, // Responsif
+                  size: MediaQuery.of(context).size.width * 0.05,
                 ),
               ),
             ),
           ),
         ],
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            buildTextField(
-                labelText: "Order Number", controller: _orderController),
-            const SizedBox(height: 20),
-            buildTextField(
-                labelText: "Employee", controller: _employeeController),
-            const SizedBox(height: 20),
-            buildTextField(
-                labelText: "Branch Company", controller: _branchController),
-            const SizedBox(height: 20),
-            buildTextField(
-                labelText: "Client Company", controller: _clientController),
-            const SizedBox(height: 20),
-            buildTextField(
-                labelText: "Discount", controller: _discountController),
-            const SizedBox(height: 20),
-            buildTextField(labelText: "Status", controller: _statusController),
-            const SizedBox(height: 190),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 20.0, right: 10.0),
-                child: ElevatedButton(
-                  onPressed: _showDetailOrder,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(12.0), // Atur radius di sini
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        "BACK",
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 50),
-                      Text(
-                        "SUBMIT",
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

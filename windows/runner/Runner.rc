@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
             VALUE "FileDescription", "frontend_pemob" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "frontend_pemob" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "frontend_pemob.exe" "\0"
             VALUE "ProductName", "frontend_pemob" "\0"
+=======
+            VALUE "FileDescription", "frontend_project" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "frontend_project" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "frontend_project.exe" "\0"
+            VALUE "ProductName", "frontend_project" "\0"
+>>>>>>> 84243e0 (order detail)
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

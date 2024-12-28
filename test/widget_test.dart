@@ -8,7 +8,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+<<<<<<< HEAD
 import 'package:frontend_pemob/main.dart';
+=======
+import 'package:frontend_project/main.dart';
+>>>>>>> 84243e0 (order detail)
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

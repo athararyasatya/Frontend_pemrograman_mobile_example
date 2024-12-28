@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login.dart'; // Import halaman Login
+import 'package:get/get.dart';
+import '../routes/route.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -62,7 +64,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: const Color(0xFFF7F7F7), // Warna putih terang
-      endDrawer: Drawer( // Tambahkan endDrawer untuk sidebar
+      endDrawer: Drawer(
+        // Tambahkan endDrawer untuk sidebar
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,7 +162,8 @@ class _HomePageState extends State<HomePage> {
         children: [
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 110, left: 16, right: 16, bottom: 80),
+              padding: const EdgeInsets.only(
+                  top: 110, left: 16, right: 16, bottom: 80),
               child: Column(
                 children: [
                   // Konten utama (Analisis Air dan Lingkungan)
@@ -197,7 +201,8 @@ class _HomePageState extends State<HomePage> {
                 width: screenWidth * 0.12,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/logo_login.png'), // Path logo perusahaan
+                    image: AssetImage(
+                        'assets/images/logo_login.png'), // Path logo perusahaan
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -231,9 +236,7 @@ class _HomePageState extends State<HomePage> {
             right: 20,
             child: ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Next Button Clicked")),
-                );
+                Get.offAllNamed(Routes.order);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
@@ -253,6 +256,7 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -270,7 +274,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildAnalysisSection(BuildContext context,
-      {required String title, required IconData icon, required List<Map<String, dynamic>> data}) {
+      {required String title,
+      required IconData icon,
+      required List<Map<String, dynamic>> data}) {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(

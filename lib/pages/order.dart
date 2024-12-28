@@ -412,16 +412,24 @@ class _OrderPageState extends State<OrderPage> {
                           BorderRadius.circular(12.0), // Atur radius di sini
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
-                    child: Text(
-                      "SUBMIT",
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                  child: Row(
+                    children: [
+                      Text(
+                        "BACK",
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
+                      const SizedBox(width: 50),
+                      Text(
+                        "SUBMIT",
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

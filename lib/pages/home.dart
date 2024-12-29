@@ -18,15 +18,15 @@ class _HomePageState extends State<HomePage> {
     {
       "name": "Water Higienis",
       "products": [
-        {"name": "Kekeruhan", "isChecked": false},
-        {"name": "pH", "isChecked": false},
+        {"name": "Kekeruhan", "isChecked": false, "price": "Rp.50.000,00"},
+        {"name": "pH", "isChecked": false, "price": "Rp.20.000,00"},
       ],
     },
     {
       "name": "Air Limbah Impal",
       "products": [
-        {"name": "Kekeruhan", "isChecked": false},
-        {"name": "pH", "isChecked": false},
+        {"name": "Kekeruhan", "isChecked": false, "price": "Rp.20.000,00"},
+        {"name": "pH", "isChecked": false, "price": "Rp.20.000,00"},
       ],
     },
   ];
@@ -35,15 +35,15 @@ class _HomePageState extends State<HomePage> {
     {
       "name": "Udara Ambient 24 jam",
       "products": [
-        {"name": "Kekeruhan", "isChecked": false},
-        {"name": "pH", "isChecked": false},
+        {"name": "Kekeruhan", "isChecked": false, "price": "Rp.20.000,00"},
+        {"name": "pH", "isChecked": false, "price": "Rp.20.000,00"},
       ],
     },
     {
       "name": "Emisi Pembangkit",
       "products": [
-        {"name": "Kekeruhan", "isChecked": false},
-        {"name": "pH", "isChecked": false},
+        {"name": "Kekeruhan", "isChecked": false, "price": "Rp.20.000,00"},
+        {"name": "pH", "isChecked": false, "price": "Rp.20.000,00"},
       ],
     },
   ];
@@ -323,12 +323,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                   children: category["products"].map<Widget>((product) {
                     return CheckboxListTile(
-                      title: Text(
-                        product["name"],
-                        style: GoogleFonts.poppins(
-                          fontSize: screenWidth * 0.035, // Responsif
-                          color: Colors.teal.shade900,
-                        ),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            product["name"],
+                            style: GoogleFonts.poppins(
+                              fontSize: screenWidth * 0.035,
+                              color: Colors.teal.shade900,
+                            ),
+                          ),
+                          Text(
+                            product["price"],
+                            style: GoogleFonts.poppins(
+                              fontSize: screenWidth * 0.035,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
                       value: product["isChecked"],
                       onChanged: (bool? value) {

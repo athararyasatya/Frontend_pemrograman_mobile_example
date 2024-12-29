@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../routes/route.dart';
+
 
 class CancelOrderDetailPage extends StatelessWidget {
   const CancelOrderDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -42,25 +43,35 @@ class CancelOrderDetailPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset('assets/logo.png',
-                          height: 50), // Replace with your logo asset
+                      Flexible(
+                        child: Image.asset(
+                          'assets/images/logo_login.png',
+                          height: screenWidth * 0.15, // Responsif berdasarkan lebar layar
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                       SizedBox(width: 16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'PT. Chemviro Buana Indonesia',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'PT. Chemviro Buana Indonesia',
+                              style: TextStyle(
+                                fontSize: screenWidth * 0.045, // Responsif
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'Head Office',
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                        ],
+                            Text(
+                              'Head Office',
+                              style: TextStyle(
+                                fontSize: screenWidth * 0.035, // Responsif
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

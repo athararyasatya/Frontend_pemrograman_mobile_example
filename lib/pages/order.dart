@@ -258,7 +258,7 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double sc= MediaQuery.of(context).size.width;
 
     return Scaffold(
       key: _scaffoldKey,

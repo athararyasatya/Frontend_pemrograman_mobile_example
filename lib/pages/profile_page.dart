@@ -21,12 +21,13 @@ class Profile extends StatelessWidget {
         title: Text('Profile'),
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.blueGrey),
-          onPressed: () {
-            Navigator.pop(context); // Navigasi kembali
-          },
-        ),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.blueGrey),
+        onPressed: () {
+          Get.offNamed(Routes.home); // Mengarahkan langsung ke halaman Home
+        },
+      ),
+
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
@@ -87,38 +88,39 @@ class Profile extends StatelessWidget {
 
   // Method to build statistic cards
   Widget _buildStatCard(String label, String value, String route) {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed(route);
-      },
-      child: Column(
-        children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                value,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+  return GestureDetector(
+    onTap: () {
+      Get.offNamed(route); // Menghapus halaman profil dari tumpukan navigasi
+    },
+    child: Column(
+      children: [
+        Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+            child: Text(
+              value,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(height: 5),
-          Text(
-            label,
-            style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-          ),
-        ],
-      ),
-    );
-  }
+        ),
+        SizedBox(height: 5),
+        Text(
+          label,
+          style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+        ),
+      ],
+    ),
+  );
+}
+
 
   // Method to build detail items
   Widget _buildDetailItem(IconData icon, String label, String value) {

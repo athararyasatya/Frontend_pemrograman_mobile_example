@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../routes/route.dart'; // Import Routes untuk navigasi
+import '../routes/route.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -42,18 +42,18 @@ class _WelcomePageState extends State<WelcomePage> {
     final double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.green, // Background hijau
+      backgroundColor: Colors.green, 
       body: Center(
         child: AnimatedOpacity(
-          duration: const Duration(milliseconds: 1000), // Durasi transisi
-          opacity: _opacity, // Nilai opacity yang akan diubah
-          curve: Curves.easeInOut, // Animasi halus
+          duration: const Duration(milliseconds: 1000), 
+          opacity: _opacity, 
+          curve: Curves.easeInOut, 
           child: Container(
-            height: screenHeight * 0.3, // Ukuran logo
+            height: screenHeight * 0.3,
             width: screenWidth * 0.5,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/Logo1.png'), // Path logo perusahaan
+                image: AssetImage('assets/images/Logo1.png'), 
                 fit: BoxFit.contain,
               ),
             ),

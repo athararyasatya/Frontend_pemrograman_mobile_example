@@ -134,10 +134,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.pop(context); // Tutup sidebar
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Profil belum dibuat'),
-                  ));
+                  Get.toNamed(Routes.profile); // Buka halaman profile
                 },
               ),
               ListTile(
